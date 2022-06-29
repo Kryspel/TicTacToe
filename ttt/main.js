@@ -1,5 +1,5 @@
 const __developer__ = "Krystian Piątek";
-const __version__ = "1.0";
+const __version__ = "1.3";
 
 function Info(){
   const plText = {
@@ -39,7 +39,9 @@ function Info(){
       <br/>
       <p>{lang.paragraph[3]}</p>
       <div className="buttons">
-        <span onClick = {() => setLang(lang == plText ? enText : plText)}>
+        <span
+          onClick = {() => setLang(lang.lang === 'English' ? enText : plText)}
+        >
           {lang.lang}
         </span>
         <span
