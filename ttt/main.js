@@ -1,28 +1,28 @@
-const plText = {
-  header: 'Kółko i Krzyżyk',
-  paragraph: [
-    'Prawdopodobnie najbardziej hardcorowa gra strategicznaz jaką kiedykolwiek miałeś/aś do czynienia.',
-    'W tej odsłonie masz szansę zmierzyć się z botem, czyli kombinacją zer i jedynek, które już są w pamięci RAM Twojego komputera!',
-    'Zakładam, że znasz zasady. Życzę powodzenia!',
-    'PS. Autor nie ponosi odpowiedzialności za szkody wynikłe w wyniku niekontrolowanych reakcji emocjonalnych wywołanych frustracją po niepomyślnym zakończeniu rozgrywki.'
-  ],
-  lang: 'English',
-  theme: 'Zmień motyw'
-}
-const enText = {
-  header: 'Tic Tac Toe',
-  paragraph: [
-    'Probably the most hardcore strategy game you have ever dealt with. Fasten your seatbelt and hold on tight!',
-    'In this installment, you have a chance to face the bot, i.e. a combination of ones and zeros that are already in your computer\'s RAM!',
-    'I think you know the rules. Good luck!',
-    'PS. The author is not responsible for damages resulting from uncontrolled emotional reactions caused by frustration after unsuccessful ending of the game.'
-  ],
-  lang: 'Polski',
-  theme: 'Change theme'
-}
-
+const __developer__ = "Krystian Piątek";
 
 function Info(){
+  const plText = {
+    header: 'Kółko i Krzyżyk',
+    paragraph: [
+      'Prawdopodobnie najbardziej hardcorowa gra strategicznaz jaką kiedykolwiek miałeś/aś do czynienia.',
+      'W tej odsłonie masz szansę zmierzyć się z botem, czyli kombinacją zer i jedynek, które już są w pamięci RAM Twojego komputera!',
+      'Zakładam, że znasz zasady. Życzę powodzenia!',
+      'PS. Autor nie ponosi odpowiedzialności za szkody wynikłe w wyniku niekontrolowanych reakcji emocjonalnych wywołanych frustracją po niepomyślnym zakończeniu rozgrywki.'
+    ],
+    lang: 'English',
+    theme: 'Zmień motyw'
+  }
+  const enText = {
+    header: 'Tic Tac Toe',
+    paragraph: [
+      'Probably the most hardcore strategy game you have ever dealt with. Fasten your seatbelt and hold on tight!',
+      'In this installment, you have a chance to face the bot, i.e. a combination of ones and zeros that are already in your computer\'s RAM!',
+      'I think you know the rules. Good luck!',
+      'PS. The author is not responsible for damages resulting from uncontrolled emotional reactions caused by frustration after unsuccessful ending of the game.'
+    ],
+    lang: 'Polski',
+    theme: 'Change theme'
+  }
   const [lang, setLang] = React.useState(plText)
 
   React.useEffect(() => (
