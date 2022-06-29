@@ -1,4 +1,5 @@
 const __developer__ = "Krystian Piątek";
+const __version__ = "1.0";
 
 function Info(){
   const plText = {
