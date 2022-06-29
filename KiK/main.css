@@ -1,0 +1,167 @@
+@keyframes appear{
+  from  { opacity: 0; }
+  to    { opacity: 1; }
+}
+@keyframes round{
+  from  { transform: rotate(-45deg); }
+  to    { transform: rotate(315deg); }
+}
+@font-face{
+  src: url("./unispace.ttf");
+  font-family: "Unispace";
+}
+@font-face{
+  src: url("./nasalization.ttf");
+  font-family: "Nasalization";
+}
+:root{
+  --bg:     #141313;
+  --bg-img:   url('./dark.png');
+  --borders:  #dadada;
+  --shadows:  #000;
+
+  --bg-light: #dadada;
+  --bg-img-l: url('./light.png');
+  --borders-l:#141313;
+  --shadows-l:#fff;
+}
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root{
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background: var(--bg) var(--bg-img);
+}
+#root.light{
+  background: var(--bg-light) var(--bg-img-l);
+}
+.load{
+  width: 60vmin;
+  height: 60vmin;
+  background: var(--bg);
+  box-shadow: 0 0 3vmin var(--shadows);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.light .load{
+  background: var(--bg-light);
+  box-shadow: 0 0 3vmin var(--shadows-l);
+}
+.load img{
+  width: 65%;
+  height: 65%;
+  filter: brightness(0) invert(0.9);
+  animation: round 4s linear infinite;
+}
+.light .load img{
+  filter: brightness(0) invert(0.1);
+}
+section{
+  width: 46vmax;
+  height: 46vmax;
+}
+article{
+  width: 100%;
+  height: 100%;
+  font-family: 'Unispace';
+  position: relative;
+  user-select: none;
+  color: var(--borders);
+}
+.light article{
+  color: var(--borders-l);
+}
+article h1{
+  font-size: 5vmax;
+  margin-bottom: 2vmax;
+  font-family: "Nasalization";
+}
+article p{
+  font-size: 1.6vmax;
+  line-height: 1.4;
+  margin-bottom: 1.2vmax;
+}
+article span{
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2vmax;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Nasalization";
+}
+article span:hover{
+  filter: brightness(75%);
+}
+article p,
+article h1,
+article span{
+  text-shadow: 0 0 0.5vmax var(--shadows);
+}
+.light article p,
+.light article h1,
+.light article span{
+  text-shadow: 0 0 0.5vmax var(--shadows-l);
+}
+main{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  background: var(--borders);
+  box-shadow: 0 0 3vmin var(--shadows);
+  border: 2vmin solid var(--bg);
+}
+.light main{
+  background: var(--borders-l);
+  box-shadow: 0 0 3vmin var(--shadows-l);
+  border: 2vmin solid var(--bg-light);
+}
+main .field{
+  width: 32%;
+  height: 32%;
+  cursor: pointer;
+  transition: filter 0.2s linear;
+  background: var(--bg);
+  user-select: none;
+}
+.light main .field{
+  background: var(--bg-light);
+}
+main .field:hover{
+  filter: brightness(150%);
+}
+.light main .field:hover{
+  filter: brightness(75%);
+}
+main .field img{
+  margin: 10%;
+  width: 80%;
+  height: 80%;
+  filter: brightness(0) invert(0.9);
+  animation: appear 0.2s ease-out;
+  transition:
+    background-color 0.4s ease-out,
+    border-radius 0.3s ease-out;
+}
+.light main .field img{
+  filter: brightness(0) invert(0.1);
+}
+main .field.end img{
+  background-color: var(--borders);
+  border-radius: 8%;
+  cursor: default;
+}
+.light .field.end img{
+  background-color: var(--borders-l);
+}
