@@ -1,29 +1,54 @@
+const plText = {
+  header: 'Kółko i Krzyżyk',
+  paragraph: [
+    'Prawdopodobnie najbardziej hardcorowa gra strategicznaz jaką kiedykolwiek miałeś/aś do czynienia.',
+    'W tej odsłonie masz szansę zmierzyć się z botem, czyli kombinacją zer i jedynek, które już są w pamięci RAM Twojego komputera!',
+    'Zakładam, że znasz zasady. Życzę powodzenia!',
+    'PS. Autor nie ponosi odpowiedzialności za szkody wynikłe w wyniku niekontrolowanych reakcji emocjonalnych wywołanych frustracją po niepomyślnym zakończeniu rozgrywki.'
+  ],
+  lang: 'English',
+  theme: 'Zmień motyw'
+}
+const enText = {
+  header: 'Tic Tac Toe',
+  paragraph: [
+    'Probably the most hardcore strategy game you have ever dealt with. Fasten your seatbelt and hold on tight!',
+    'In this installment, you have a chance to face the bot, i.e. a combination of ones and zeros that are already in your computer\'s RAM!',
+    'I think you know the rules. Good luck!',
+    'PS. The author is not responsible for damages resulting from uncontrolled emotional reactions caused by frustration after unsuccessful ending of the game.'
+  ],
+  lang: 'Polski',
+  theme: 'Change theme'
+}
+
+
 function Info(){
-  function toogleTheme(){
-    document.querySelector('#root')
-      .classList.toggle('light')
-  }
+  const [lang, setLang] = React.useState(plText)
+
+  React.useEffect(() => (
+    document.title = `${lang.header} - React`
+  ), [lang])
+
   return (
     <article>
-      <h1> Kółko i Krzyżyk </h1>
-      <p>
-        Prawdopodobnie najbardziej hardcorowa gra strategiczna
-        z jaką kiedykolwiek miałeś/aś do czynienia.
-      </p><p>
-        W tej odsłonie masz szansę zmierzyć się z botem, czyli
-        kombinacją zer i jedynek, które już są w pamięci RAM
-        Twojego komputera!
-      </p><p>
-        Zakładam, że znasz zasady. Życzę powodzenia!
-      </p><br/><p>
-        PS. Autor nie ponosi odpowiedzialności za szkody wynikłe
-        w wyniku niekontrolowanych reakcji emocjonalnych
-        wywołanych frustracją po niepomyślnym zakończeniu
-        rozgrywki.
-      </p>
-      <span onClick = {toogleTheme}>
-        Kliknij mnie, aby zmienić motyw
-      </span>
+      <h1>{lang.header}</h1>
+      <p>{lang.paragraph[0]}</p>
+      <p>{lang.paragraph[1]}</p>
+      <p>{lang.paragraph[2]}</p>
+      <br/>
+      <p>{lang.paragraph[3]}</p>
+      <div className="buttons">
+        <span onClick = {() => setLang(lang == plText ? enText : plText)}>
+          {lang.lang}
+        </span>
+        <span
+          onClick = {
+            () => document.querySelector('#root').classList.toggle('light')
+          }
+        >
+          {lang.theme}
+        </span>
+      </div>
     </article>
   )
 }
@@ -40,7 +65,7 @@ function GameField(props){
       id = {id}
       onClick = {onClick}
     >
-      { char && <img src = {`./KiK/${char}.svg`} />}
+      { char && <img src = {`./ttt/${char}.svg`} />}
     </div>
   )
 }
